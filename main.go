@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	cards "cards/bones"
+	"fmt"
+)
 
 func main() {
-	fmt.Println("Cards")
+	fmt.Println("Let's play some cards")
+
+	newDeck := cards.GenerateDeck()
+	newDeck.Shuffle()
+	fmt.Println(newDeck)
 }
