@@ -17,6 +17,25 @@ func (d Deck) Shuffle() {
 	}
 }
 
+func (d Deck) DealToPlayer() Hand {
+	seed := rand.NewSource(time.Now().UnixNano())
+	Rand := rand.New(seed)
+
+	var newHand Hand
+
+	card1Index := Rand.Intn(len(d))
+	card1 := d[card1Index]
+	newHand[0] = card1
+	d = append(d[:card1Index], d[card1Index+1:]...)
+
+	card2Index := Rand.Intn(len(d))
+	card2 := d[card2Index]
+	newHand[1] = card2
+	d = append(d[:card2Index], d[card2Index+1:]...)
+
+	return newHand
+}
+
 func GenerateDeck() Deck {
 	suites := []string{"Spades", "Clubs", "Hearts", "Diamonds"}
 	values := []string{"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"}
