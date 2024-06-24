@@ -1,7 +1,7 @@
 package main
 
 import (
-	cards "cards/bones"
+	cards "cards/lib/cards"
 	"fmt"
 )
 

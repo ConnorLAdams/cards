@@ -5,10 +5,10 @@ import (
 	"time"
 )
 
-// type hand [2]string
-type deck []string
+type Hand [2]string
+type Deck []string
 
-func (d deck) Shuffle() {
+func (d Deck) Shuffle() {
 	seed := rand.NewSource(time.Now().UnixNano())
 	Rand := rand.New(seed)
 	for i := len(d) - 1; i > 0; i-- {
@@ -17,11 +17,11 @@ func (d deck) Shuffle() {
 	}
 }
 
-func GenerateDeck() deck {
+func GenerateDeck() Deck {
 	suites := []string{"Spades", "Clubs", "Hearts", "Diamonds"}
 	values := []string{"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"}
 
-	var cards deck
+	var cards Deck
 	for _, suit := range suites {
 		for _, value := range values {
 			cards = append(cards, value+" of "+suit)
