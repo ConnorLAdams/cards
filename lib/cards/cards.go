@@ -7,6 +7,9 @@ import (
 
 type Hand [2]string
 type Deck []string
+type Cards interface {
+	ShowCards()
+}
 
 func (d Deck) Shuffle() {
 	seed := rand.NewSource(time.Now().UnixNano())
@@ -34,6 +37,14 @@ func (d Deck) DealToPlayer() Hand {
 	d = append(d[:card2Index], d[card2Index+1:]...)
 
 	return newHand
+}
+
+func (h Hand) ShowCards() {
+	fmt.Println(h)
+}
+
+func (d Deck) ShowCards() {
+	fmt.Println(d)
 }
 
 func GenerateDeck() Deck {
