@@ -3,6 +3,7 @@ package cards
 import (
 	"math/rand"
 	"time"
+	"fmt"
 )
 
 type Hand [2]string

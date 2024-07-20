@@ -12,11 +12,30 @@ func main() {
 	newDeck := cards.GenerateDeck()
 	newDeck.Shuffle()
 	fmt.Println(newDeck)
+	fmt.Println("")
 
-	newPlayer := players.Player{
+	player1 := players.Player{
 		Name:  "Goseph",
 		Cards: newDeck.DealToPlayer(),
 	}
 
-	newPlayer.ShowCards()
+	player1.ShowCards()
+
+	player2 := players.Player{
+		Name: "Rusty",
+		Cards: newDeck.DealToPlayer(),
+	}
+
+	player2.ShowCards()
+
+	fmt.Println(compareHands(player1, player2))
+}
+
+func compareHands(p1 players.Player, p2 players.Player) string {
+	p1Cards := p1.Cards
+	p2Cards := p2.Cards
+	
+	fmt.Println(p1Cards, p2Cards)
+	fmt.Println("")
+	return p1.Name
 }
